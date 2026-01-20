@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h2 class="page-title">Add Student</h2>
+        <p style="color: var(--text-secondary);">Create a new student record</p>
+    </div>
+    <a href="{{ url_for('index') }}" class="btn"
+        style="background: white; color: var(--text-secondary); box-shadow: none; border: 1px solid #e2e8f0;">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<div class="glass-panel" style="max-width: 800px; margin: 0 auto;">
+    <form action="{{ url_for('add_student') }}" method="POST">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <!-- Full Name -->
+            <div class="form-group" style="grid-column: span 2;">
+                <label for="name" class="form-label">Full Name</label>
+                <div style="position: relative;">
+                    <i class="fas fa-user" style="position: absolute; left: 16px; top: 16px; color: #a0aec0;"></i>
+                    <input type="text" id="name" name="name" class="form-input" style="padding-left: 48px;" required
+                        placeholder="e.g. John Doe">
+                </div>
+            </div>
+
+            <!-- Roll No -->
+            <div class="form-group">
+                <label for="roll_no" class="form-label">Roll Number</label>
+                <div style="position: relative;">
+                    <i class="fas fa-id-card" style="position: absolute; left: 16px; top: 16px; color: #a0aec0;"></i>
+                    <input type="text" id="roll_no" name="roll_no" class="form-input" style="padding-left: 48px;"
+                        required placeholder="e.g. CS-2026-001">
+                </div>
+            </div>
+
+            <!-- Year -->
+            <div class="form-group">
+                <label for="year" class="form-label">Year of Study</label>
+                <div style="position: relative;">
+                    <i class="fas fa-calendar-alt"
+                        style="position: absolute; left: 16px; top: 16px; color: #a0aec0;"></i>
+                    <select id="year" name="year" class="form-input form-select" style="padding-left: 48px;" required>
+                        <option value="">Select Year</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Department -->
+            <div class="form-group" style="grid-column: span 2;">
+                <label for="department" class="form-label">Department</label>
+                <div style="position: relative;">
+                    <i class="fas fa-building" style="position: absolute; left: 16px; top: 16px; color: #a0aec0;"></i>
+                    <select id="department" name="department" class="form-input form-select" style="padding-left: 48px;"
+                        required>
+                        <option value="">Select Department</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="Civil">Civil</option>
+                        <option value="Information Technology">Information Technology</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; text-align: right;">
+            <button type="submit" class="btn">
+                <i class="fas fa-check"></i> Save Record
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
